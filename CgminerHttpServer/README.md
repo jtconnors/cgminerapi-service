@@ -32,7 +32,7 @@ To start the HTTP server from maven, issue the following command:
 <properties>
   ...
   <mainClass>com.jtconnors.cgminerapi.http.CgminerHttpServer</mainClass>
-  <cgminerHost>49er</cgminerHost>
+  <cgminerHost>jtconnors.com</cgminerHost>
   <cgminerPort>4028</cgminerPort>
   <httpPort>8000</httpPort>
   ...

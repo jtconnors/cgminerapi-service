@@ -32,7 +32,7 @@ Set-Variable -Name JAVA_ARGS -Value @(
     '-classpath',
     """$CLASSPATH""",
     """$MAINCLASS""",
-    '-cgminerHost:49er',
+    '-cgminerHost:jtconnors.com',
     '-cgminerPort:4028',
     '-httpPort:8000'
 )

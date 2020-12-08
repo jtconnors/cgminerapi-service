@@ -54,6 +54,10 @@ public class CgArgs extends CLArgs {
     public static final String DASH_CGMINERPORT = "-" + CGMINERPORT;
     public static final String DASH_HTTPPORT = "-" + HTTPPORT;
 
+    public static final String DEFAULT_CGMINERPORT = "4028";
+    public static final String DEFAULT_CGMINERHOST = "jtconnors.com";
+    public static final String DEFAULT_HTTPPORT = "8000";
+
     /*
      * Associate a printable help string with each Command-line option
      */
@@ -63,13 +67,13 @@ public class CgArgs extends CLArgs {
          * DASH_HELP and DASH_DEBUGLOG put in the helpStrMap by superclass.
          */
         helpStrMap.put(DASH_CGMINERHOST,
-            "  -cgminerHost:HOSTNAME (default: jtconnors.com)\n" +
+            "  -cgminerHost:HOSTNAME (default " + DEFAULT_CGMINERHOST + ")\n" +
             "\tSpecify hostname (or IP Address) of socket");
         helpStrMap.put(DASH_CGMINERPORT,
-            "  -cgminerPort:PORT_NUMBER (default 4028)\n" +
+            "  -cgminerPort:PORT (default " + DEFAULT_CGMINERPORT + ")\n" +
             "\tSpecify port for socket connection to cgminer");
         helpStrMap.put(DASH_HTTPPORT,
-            "  -httpPort:PORT_NUMBER (default 8000)\n" +
+            "  -httpPort:PORT (default " + DEFAULT_HTTPPORT + ")\n" +
             "\tSpecify http server port");
     }
 

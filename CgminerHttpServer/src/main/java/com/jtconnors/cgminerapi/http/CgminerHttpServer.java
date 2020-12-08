@@ -29,9 +29,9 @@ public class CgminerHttpServer {
     static {
         cgArgs = new CgArgs(MethodHandles.lookup().lookupClass(), 
             RESOURCE_NAME, PROGNAME);
-        cgArgs.addAllowableArg(CGMINERHOST, "localhost");
-        cgArgs.addAllowableArg(CGMINERPORT, "4028");
-        cgArgs.addAllowableArg(HTTPPORT, "4000");
+        cgArgs.addAllowableArg(CGMINERHOST, DEFAULT_CGMINERHOST);
+        cgArgs.addAllowableArg(CGMINERPORT, DEFAULT_CGMINERPORT);
+        cgArgs.addAllowableArg(HTTPPORT, DEFAULT_HTTPPORT);
         cgArgs.addAllowableArg(DEBUGLOG, "false");
     }
 
