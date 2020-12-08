@@ -31,7 +31,7 @@ if ($Global:JUST_EXIT -eq "true") {
 Set-Variable -Name JAVA_ARGS -Value @(
     '-classpath',
     """$CLASSPATH""",
-    'com.jtconnors.cgminerapi.http.CgminerHttpServer',
+    """$MAINCLASS""",
     '-cgminerHost:49er',
     '-cgminerPort:4028',
     '-httpPort:8000'
