@@ -15,4 +15,4 @@ LOCALPORT=4028
 REMOTEHOST=49er
 REMOTEPORT=4028
 
-exec_cmd "target/CgminerHttpServer -localPort:$LOCALPORT -remoteHost:$REMOTEHOST -remotePort:$REMOTEPORT"
+exec_cmd "target/$PROJECT -localPort:$LOCALPORT -remoteHost:$REMOTEHOST -remotePort:$REMOTEPORT"

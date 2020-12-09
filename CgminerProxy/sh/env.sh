@@ -35,9 +35,9 @@ esac
 #
 # Application specific variables
 #
-PROJECT=CgminerHttpServer
-VERSION=4.10.0
-MAINCLASS=com.jtconnors.cgminerapi.http.CgminerHttpServer
+PROJECT=CgminerProxy
+VERSION=1.0-JDK8
+MAINCLASS=com.jtconnors.cgminerapi.netty.CgminerProxy
 MAINJAR=$PROJECT-$VERSION.jar
 
 #
@@ -57,6 +57,7 @@ EXTERNAL_CLASSPATH=(
     "$REPO/javax/json/javax.json.api/1.1.4/json-api-1.1.4.jar"
     "$REPO/org/glassfish/javax.json/1.1/javax.json-1.1.jar"
     "$REPO/com/jtconnors/com.jtconnors.cgminerapi/4.10.0-JDK8/com.jtconnors.cgminerapi-4.10.0-JDK8.jar"
+	"$REPO/io/netty/netty-all/4.1.54.Final/netty-all-4.1.54.Final.jar"
 )
 
 #

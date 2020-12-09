@@ -77,10 +77,6 @@ public final class CgminerProxy {
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
             ServerBootstrap b = new ServerBootstrap();
-            
-            /* Line added to make GraalVM native-image builder tool happy */
-            //b.handler(loggingHandler);
-
             b.group(bossGroup, workerGroup)
             .channel(NioServerSocketChannel.class)
             .handler(new LoggingHandler(LogLevel.INFO))

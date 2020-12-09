@@ -22,8 +22,8 @@ Set-Variable -Name PLATFORM -Value win
 # Application specific variables
 #
 Set-Variable -Name PROJECT -Value cgminerapi
-Set-Variable -Name VERSION -Value "4.10.0"
-Set-Variable -Name MAINCLASS -Value com.jtconnors.cgminerapi.http.CgminerHttpServer
+Set-Variable -Name VERSION -Value "1.0"
+Set-Variable -Name MAINCLASS -Value com.jtconnors.cgminerapi.netty.CgminerProxy
 Set-Variable -Name MAINJAR -Value $PROJECT-$VERSION.jar
 
 #
@@ -42,7 +42,8 @@ Set-Variable -Name TARGET -Value target
 Set-Variable -Name EXTERNAL_CLASSPATH -Value @(
     "$REPO\javax\json\javax.json.api\1.1.4\javax.json-api-1.1.4.jar",
     "$REPO\org\glassfish\javax.json\1.1\javax.json-1.1.jar",
-    "$REPO\com\jtconnors\com.jtconnors.cgminerapi\4.10.0-JDK8\com.jtconnors.cgminerapi-4.10.0-JDK8.jar"
+    "$REPO\com\jtconnors\com.jtconnors.cgminerapi\4.10.0-JDK8\com.jtconnors.cgminerapi-4.10.0-JDK8.jar",
+    "$REPO\io\netty\netty-all\4.1.54.Final\netty-all-4.1.54.Final.jar"
 )
 
 #
