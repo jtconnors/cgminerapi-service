@@ -28,7 +28,7 @@ if ($Global:JUST_EXIT -eq "true") {
 #
 # Run the Java command
 #
-Set-Variable -Name TRACING_AGENT -Value "-agentlib:native-image-agent=config-merge-dir=src/main/resources/META-INF/native-image/"
+Set-Variable -Name TRACING_AGENT -Value "-agentlib:native-image-agent=config-merge-dir=src\main\resources\META-INF\native-image\"
 $TRACING_AGENT += $MAINCLASS
 Set-Variable -Name JAVA_ARGS -Value @(
     """$TRACING_AGENT""",
