@@ -36,7 +36,7 @@ esac
 # Application specific variables
 #
 PROJECT=CgminerHttpServer
-VERSION=4.10.0
+VERSION=1.0-JDK8
 MAINCLASS=com.jtconnors.cgminerapi.http.CgminerHttpServer
 MAINJAR=$PROJECT-$VERSION.jar
 
@@ -56,7 +56,7 @@ TARGET=target
 EXTERNAL_CLASSPATH=(
     "$REPO/javax/json/javax.json.api/1.1.4/json-api-1.1.4.jar"
     "$REPO/org/glassfish/javax.json/1.1/javax.json-1.1.jar"
-    "$REPO/com/jtconnors/com.jtconnors.cgminerapi/4.10.0-JDK8/com.jtconnors.cgminerapi-4.10.0-JDK8.jar"
+    "$REPO/com/jtconnors/com.jtconnors.cgminerapi/4.10.0.1-JDK8/com.jtconnors.cgminerapi-4.10.0.1-JDK8.jar"
 )
 
 #

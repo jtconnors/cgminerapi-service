@@ -3,18 +3,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.jtconnors</groupId>
-    <artifactId>CgminerProxy</artifactId>
+    <artifactId>CgminerHttpServer</artifactId>
     <version>1.0-JDK8</version>
     <packaging>jar</packaging>
 
-    <name>cgminerapi</name>
+    <name>CgminerHttpServer</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <mainClass>com.jtconnors.cgminerapi.netty.CgminerProxy</mainClass>
-        <localPort>4028</localPort>
-        <remoteHost>49er</remoteHost>
-        <remotePort>4028</remotePort>
+        <mainClass>com.jtconnors.cgminerapi.http.CgminerHttpServer</mainClass>
+        <cgminerHost>jtconnors.com</cgminerHost>
+        <cgminerPort>4028</cgminerPort>
+        <httpPort>8000</httpPort>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <graalvm.version>20.3.0</graalvm.version>
@@ -58,11 +58,6 @@
             <artifactId>com.jtconnors.cgminerapi</artifactId>
             <version>4.10.0.1-JDK8</version>
         </dependency>
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>4.1.54.Final</version>
-        </dependency>
     </dependencies>
     
     <build>
@@ -102,9 +97,9 @@
                             <executable>java</executable>
                             <mainClass>${mainClass}</mainClass>
                             <arguments>
-                               <argument>-localPort:${localPort}</argument>
-                               <argument>-remoteHost:${remoteHost}</argument>
-                               <argument>-remotePort:${remotePort}</argument>
+                               <argument>-cgminerHost:${cgminerHost}</argument>
+                               <argument>-cgminerPort:${cgminerPort}</argument>
+                               <argument>-httpPort:${httpPort}</argument>
                             </arguments>
                         </configuration>
                     </execution>

@@ -21,8 +21,8 @@ Set-Variable -Name PLATFORM -Value win
 #
 # Application specific variables
 #
-Set-Variable -Name PROJECT -Value cgminerapi
-Set-Variable -Name VERSION -Value "1.0"
+Set-Variable -Name PROJECT -Value CgminerProxy
+Set-Variable -Name VERSION -Value "1.0-JDK8"
 Set-Variable -Name MAINCLASS -Value com.jtconnors.cgminerapi.netty.CgminerProxy
 Set-Variable -Name MAINJAR -Value $PROJECT-$VERSION.jar
 
