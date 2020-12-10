@@ -4,10 +4,10 @@
 
     <groupId>com.jtconnors</groupId>
     <artifactId>CgminerHttpServer</artifactId>
-    <version>4.10.0</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>cgminerapi</name>
+    <name>CgminerHttpServer</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -134,7 +134,7 @@
                         <configuration>
                             <mainClass>${mainClass}</mainClass>
                             <skip>false</skip>
-                            <imageName>${artifactId}</imageName>
+                            <imageName>${project.artifactId}</imageName>
                             <buildArgs>
 <!--
                                 -R:MinHeapSize=16m -R:MaxHeapSize=64m
