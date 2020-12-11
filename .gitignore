@@ -8,3 +8,8 @@ CgminerProxy/.project
 CgminerProxy/.vscode/
 CgminerProxy/.settings/
 CgminerProxy/target/
+CgminerNettyHttpServer/.classpath
+CgminerNettyHttpServer/.project
+CgminerNettyHttpServer/.vscode/
+CgminerNettyHttpServer/.settings/
+CgminerNettyHttpServer/target/
