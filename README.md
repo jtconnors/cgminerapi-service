@@ -27,4 +27,7 @@ Rather it is a proxy service that allows internal cgminer instances to be expose
 The various *cgminerapi-service* implementations contained within use ```jtconnors.com``` as the default cgminer instance
 (you can change the cgminer instance via command-line or properties file). ```jtconnors.com```
 (when fully operating - no guarantees) does not contain a cgminer instance.  Instead, it runs ```CgminerProxy```
-and forwards requests/replies from an otherwise inaccessible internal instance running real bitcoin mining equipment.
+and forwards requests/replies from an otherwise inaccessible internal instance running real, albeit humble, bitcoin mining equipment.
+# See Also:
+- cgminer project on GitHub - https://github.com/ckolivas/cgminer
+- com.jtconnors.cgminerapi project on GitHub - https://gitbub.com/jtconnors/com.jtconnors.cgminerapi
