@@ -3,8 +3,7 @@
 This project aims to survey some of the Java frameworks available for microservices development and deployment.  By
 duplicating the same service (called the *cgminerapi-service*) on top of the selected frameworks,
 it attempts to create both traditional bytecode and [GraalVM](https://www.graalvm.org/) native-image versions
-of the service in order to compare and contrast memory consumption and startup
-times.
+in order to compare and contrast memory consumption and startup times.
 ## What is the cgminerapi-service?
 *cgminer* is open-source cryptocurrency miner software that is available for most platforms (Windows, Linux, MacOS ...)
 and has support for many of the popular GPU and mining-specific ASICs.  As part of its operation,
