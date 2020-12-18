@@ -21,7 +21,6 @@
 
 package com.jtconnors.cgminerapi.netty;
 
-import com.jtconnors.cgminerapi.CgArgs;
 import com.jtconnors.cgminerapi.Util;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
@@ -36,21 +35,21 @@ import java.lang.management.ManagementFactory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static com.jtconnors.cgminerapi.netty.CgArgs.*;
+import static com.jtconnors.cgminerapi.netty.ProxyArgs.*;
  
 public final class CgminerProxy {
 
     private static final String PROGNAME = "cgminerProxy";
 
-    private static CgArgs cgArgs;
+    private static ProxyArgs proxyArgs;
 
     static {
-        cgArgs = new CgArgs(MethodHandles.lookup().lookupClass(),
+        proxyArgs = new ProxyArgs(MethodHandles.lookup().lookupClass(),
             RESOURCE_NAME, PROGNAME);
-        cgArgs.addAllowableArg(LOCALPORT, "4028");
-        cgArgs.addAllowableArg(REMOTEHOST, "49er");
-        cgArgs.addAllowableArg(REMOTEPORT, "4028");
-        cgArgs.addAllowableArg(DEBUGLOG, "false");
+        proxyArgs.addAllowableArg(LOCALPORT, "4028");
+        proxyArgs.addAllowableArg(REMOTEHOST, "49er");
+        proxyArgs.addAllowableArg(REMOTEPORT, "4028");
+        proxyArgs.addAllowableArg(DEBUGLOG, "false");
     }
  
     public static void main(String[] args) throws Exception {
@@ -59,11 +58,11 @@ public final class CgminerProxy {
         int remotePort;
         boolean debugLog;
 
-        cgArgs.parseArgs(args);
-        localPort = Integer.parseInt(cgArgs.getProperty(LOCALPORT));
-        remoteHost = cgArgs.getProperty(REMOTEHOST);
-        remotePort = Integer.parseInt(cgArgs.getProperty(REMOTEPORT));
-        debugLog = Boolean.parseBoolean(cgArgs.getProperty(DEBUGLOG));
+        proxyArgs.parseArgs(args);
+        localPort = Integer.parseInt(proxyArgs.getProperty(LOCALPORT));
+        remoteHost = proxyArgs.getProperty(REMOTEHOST);
+        remotePort = Integer.parseInt(proxyArgs.getProperty(REMOTEPORT));
+        debugLog = Boolean.parseBoolean(proxyArgs.getProperty(DEBUGLOG));
         if (!debugLog) {
             Logger.getLogger("io.netty").setLevel(Level.OFF);    
         }

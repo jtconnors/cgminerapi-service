@@ -38,9 +38,9 @@ import com.jtconnors.cgminerapi.CLArgs;
  * options that can be set in a properties file and optionally overriden
  * by command-line.
  * <br>
- * To see how {@code CgArgs} is used in a main program see {@link CgminerProxy}.
+ * To see how {@code ProxyArgs} is used in a main program see {@link CgminerProxy}.
  */
-public class CgArgs extends CLArgs {
+public class ProxyArgs extends CLArgs {
 
     public static final String RESOURCE_NAME = "/cgminerapi.properties";
 
@@ -78,7 +78,7 @@ public class CgArgs extends CLArgs {
     }
 
     /**
-     * Initializes a newly created {@code CgArgs} instance.  {@code CLArgs}
+     * Initializes a newly created {@code ProxyArgs} instance.  {@code ProxyArgs}
      * instances include a {@code Properties} object where individual properties
      * are stored in the following format: {@code progName.key=value}.
      * Initial propery values are read from a resource file that is bundled
@@ -90,13 +90,13 @@ public class CgArgs extends CLArgs {
      * retrieve key-value pairs. Individual properties will be prefaced by the
      * propertyName as in {@code programName.property=value}.
      */
-    public CgArgs(Class<?> clazz, String resourceName, String progName) {
+    public ProxyArgs(Class<?> clazz, String resourceName, String progName) {
         super(clazz, RESOURCE_NAME, progName);
     }
 
 
     /**
-     * Process the Command-line arguments and set {@code CgArgs} instance
+     * Process the Command-line arguments and set {@code ProxyArgs} instance
      * properties accordingly
      * @param args the list cf command-line arguments
      */
