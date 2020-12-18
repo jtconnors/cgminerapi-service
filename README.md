@@ -22,9 +22,9 @@ own distinct [Apache Maven](https://maven.apache.org/) project and contains its 
 - [CgminerHttpServer](CgminerHttpServer) - An implementation using the JDK's simple high-level [com.sun.net.httpserver](https://docs.oracle.com/javase/8/docs/jre/api/net/httpserver/spec/com/sun/net/httpserver/package-summary.html) API.
 - [CgminerNettyHttpServer](CgminerNettyHttpServer) - An implementation using the client-server [Netty](https://netty.io) framework.
 ## CgminerProxy
-One additional project, Called [CgminerProxy](CgminerProxy), is provided that is not a *cgminerapi-service* implementation.
+One additional project, called [CgminerProxy](CgminerProxy), is provided that is not a *cgminerapi-service* implementation.
 Rather it is a proxy service that allows internal cgminer instances to be exposed to a larger audience.
-The various *cgminerapi-service* implementations contained within use ```jtconnors.com``` as the default cgminer instance
+The various *cgminerapi-service* implementations contained within this project use ```jtconnors.com``` as the default cgminer instance
 (you can change the cgminer instance via command-line or properties file). ```jtconnors.com```
 (when fully operating - no guarantees) does not contain a cgminer instance.  Instead, it runs ```CgminerProxy```
 and forwards requests/replies from an otherwise inaccessible internal instance running real, albeit humble, bitcoin mining equipment.
