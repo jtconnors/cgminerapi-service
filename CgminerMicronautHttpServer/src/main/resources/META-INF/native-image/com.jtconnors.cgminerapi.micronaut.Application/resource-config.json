@@ -1,0 +1,8 @@
+{
+  "resources":{
+  "includes":[
+    {"pattern":"\\Qapplication.yml\\E"}, 
+    {"pattern":"\\Qcgminerapi.properties\\E"}
+  ]},
+  "bundles":[]
+}

@@ -13,3 +13,8 @@ CgminerNettyHttpServer/.project
 CgminerNettyHttpServer/.vscode/
 CgminerNettyHttpServer/.settings/
 CgminerNettyHttpServer/target/
+CgminerMicronautHttpServer/.classpath
+CgminerMicronautHttpServer/.project
+CgminerMicronautHttpServer/.vscode/
+CgminerMicronautHttpServer/.settings/
+CgminerMicronautHttpServer/target/

@@ -21,6 +21,7 @@ using a different framework. Each subdirectory is its
 own distinct [Apache Maven](https://maven.apache.org/) project and contains its own ```pom.xml``` file.  The projects include
 - [CgminerHttpServer](CgminerHttpServer) - An implementation using the JDK's simple high-level [com.sun.net.httpserver](https://docs.oracle.com/javase/8/docs/jre/api/net/httpserver/spec/com/sun/net/httpserver/package-summary.html) API.
 - [CgminerNettyHttpServer](CgminerNettyHttpServer) - An implementation using the client-server [Netty](https://netty.io) framework.
+- [CgminerMicronautHttpServer](CgminerMicronautHttpServer) - An implementation using the [Micronaut](https://micronaut.io/) framework.
 ## CgminerProxy
 One additional project, called [CgminerProxy](CgminerProxy), is provided that is not a *cgminerapi-service* implementation.
 Rather it is a proxy service that allows internal cgminer instances to be exposed to a larger audience.
