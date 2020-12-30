@@ -29,7 +29,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-package com.jtconnors.cgminerapi.micronaut;
+package com.jtconnors.cgminerapi.http;
 
 import com.jtconnors.cgminerapi.CLArgs;
 
@@ -38,24 +38,28 @@ import com.jtconnors.cgminerapi.CLArgs;
  * options that can be set in a properties file and optionally overriden
  * by command-line.
  * <br>
- * To see how {@code CgArgs} is used in a main program see {@link Samples}.
+ * To see another example how it is used in a main program see {@link Samples}.
  */
-public class CgArgs extends CLArgs {
+public class serverArgs extends CLArgs {
 
     public static final String RESOURCE_NAME = "/cgminerapi.properties";
 
     /* DASH, HELP and DEBUGLOG already defined in superclass */
     public static final String CGMINERHOST = "cgminerHost";
     public static final String CGMINERPORT = "cgminerPort";
+    public static final String HTTPPORT = "httpPort";
     public static final String LOGMEMUSAGE = "logMemUsage";
 
     /* DASH_HELP and DASH_DEBUG_LOG already defined in superclass */
     public static final String DASH_CGMINERHOST = "-" + CGMINERHOST;
     public static final String DASH_CGMINERPORT = "-" + CGMINERPORT;
+    public static final String DASH_HTTPPORT = "-" + HTTPPORT;
     public static final String DASH_LOGMEMUSAGE = "-" + LOGMEMUSAGE;
 
-    public static final String DEFAULT_CGMINERHOST = "jtconnors.com";
+
     public static final String DEFAULT_CGMINERPORT = "4028";
+    public static final String DEFAULT_CGMINERHOST = "jtconnors.com";
+    public static final String DEFAULT_HTTPPORT = "8000";
     public static final String DEFAULT_LOGMEMUSAGE = "false";
 
     /*
@@ -72,13 +76,16 @@ public class CgArgs extends CLArgs {
         helpStrMap.put(DASH_CGMINERPORT,
             "  -cgminerPort:PORT (default " + DEFAULT_CGMINERPORT + ")\n" +
             "\tSpecify port for socket connection to cgminer");
+        helpStrMap.put(DASH_HTTPPORT,
+            "  -httpPort:PORT (default " + DEFAULT_HTTPPORT + ")\n" +
+            "\tSpecify http server port");
         helpStrMap.put(DASH_LOGMEMUSAGE,
             "  -logMemUsage:{true|false} (default "+DEFAULT_LOGMEMUSAGE+ ")\n" +
             "\tLog memory usage after each http request");
     }
 
     /**
-     * Initializes a newly created {@code CgArgs} instance.  {@code CLArgs}
+     * Initializes a newly created {@code ServerArgs} instance.  {@code CLArgs}
      * instances include a {@code Properties} object where individual properties
      * are stored in the following format: {@code progName.key=value}.
      * Initial propery values are read from a resource file that is bundled
@@ -90,15 +97,15 @@ public class CgArgs extends CLArgs {
      * retrieve key-value pairs. Individual properties will be prefaced by the
      * propertyName as in {@code programName.property=value}.
      */
-    public CgArgs(Class<?> clazz, String resourceName, String progName) {
+    public serverArgs(Class<?> clazz, String resourceName, String progName) {
         super(clazz, RESOURCE_NAME, progName);
     }
 
 
     /**
-     * Process the Command-line arguments and set {@code CLArgs} instance
+     * Process the Command-line arguments and set {@code ServerArgs} instance
      * properties accordingly
-     * @param args the list of command-line arguments
+     * @param args the list cf command-line arguments
      */
     @Override
     public void parseArgs(String[] args) {
@@ -108,6 +115,9 @@ public class CgArgs extends CLArgs {
         }
         if (isOnCmdLine(DASH_CGMINERPORT, args)) {
             setProperty(CGMINERPORT, getArgValue(DASH_CGMINERPORT, args));
+        }
+        if (isOnCmdLine(DASH_HTTPPORT, args)) {
+            setProperty(HTTPPORT, getArgValue(DASH_HTTPPORT, args));
         }
         if (isOnCmdLine(DASH_LOGMEMUSAGE, args)) {
             setProperty(LOGMEMUSAGE, getArgValue(DASH_LOGMEMUSAGE, args));

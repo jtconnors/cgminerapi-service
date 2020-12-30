@@ -62,12 +62,15 @@ public class CgminerNettyHttpServerHandler
 
     private final String cgminerHost;
     private final int cgminerPort;
+    private final boolean logMemUsage;
 
-    public CgminerNettyHttpServerHandler(String cgminerHost, int cgminerPort) {
+    public CgminerNettyHttpServerHandler(String cgminerHost,
+            int cgminerPort, boolean logMemUsage) {
         super();
         this.cgminerHost = cgminerHost;
         this.cgminerPort = cgminerPort;
-    } 
+        this.logMemUsage = logMemUsage;
+    }
 
     private ResponseBlock parseUriString(String uriStr) {
         ResponseBlock rb = new ResponseBlock();
@@ -133,6 +136,14 @@ public class CgminerNettyHttpServerHandler
             } else {
                 response.headers().set(CONNECTION, KEEP_ALIVE);
                 ctx.write(response);
+            }
+            if (logMemUsage) {
+                Level originalLogLevel = LOGGER.getLevel();
+                LOGGER.setLevel(Level.INFO);
+                LOGGER.log(Level.INFO, "Memory usage = {0}", 
+                    Runtime.getRuntime().totalMemory() -
+                    Runtime.getRuntime().freeMemory());
+                LOGGER.setLevel(originalLogLevel);
             }
         }
     }

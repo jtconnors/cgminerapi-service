@@ -14,7 +14,7 @@
         <mainClass>com.jtconnors.cgminerapi.micronaut.Application</mainClass>
         <cgminerHost>jtconnors.com</cgminerHost>
         <cgminerPort>4028</cgminerPort>
-        <httpPort>8000</httpPort>
+        <logMemUsage>true</logMemUsage>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <graalvm.version>20.3.0</graalvm.version>
@@ -145,7 +145,7 @@
                             <arguments>
                                 <argument>-cgminerHost:${cgminerHost}</argument>
                                 <argument>-cgminerPort:${cgminerPort}</argument>
-                                <argument>-httpPort:${httpPort}</argument>
+                                <argument>-logMemUsage:${logMemUsage}</argument>
                             </arguments>
                         </configuration>
                     </execution>

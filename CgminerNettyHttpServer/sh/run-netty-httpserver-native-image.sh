@@ -13,6 +13,7 @@ cd `dirname $0`
 
 CGMINERHOST="jtconnors.com"
 CGMINERPORT="4028"
-HTTPPORT="8000"
+HTTPPORT="8001"
+LOGMEMUSAGE="true"
 
-exec_cmd "target/$PROJECT -cgminerHost:$CGMINERHOST -cgminerPort:$CGMINERPORT -httpPort:$HTTPPORT"
+exec_cmd "target/$PROJECT -cgminerHost:$CGMINERHOST -cgminerPort:$CGMINERPORT -httpPort:$HTTPPORT -logMemUsage:$LOGMEMUSAGE"

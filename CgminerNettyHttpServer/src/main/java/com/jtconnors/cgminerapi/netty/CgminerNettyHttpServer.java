@@ -26,7 +26,7 @@ import java.util.logging.Logger;
 
 import com.jtconnors.cgminerapi.Util;
 
-import static com.jtconnors.cgminerapi.netty.CgArgs.*;
+import static com.jtconnors.cgminerapi.netty.ServerArgs.*;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
@@ -51,16 +51,16 @@ public final class CgminerNettyHttpServer {
     private static final String PROGNAME= "cgminerNettyHttpServer";
     public static final String CONTEXT = "/cgminer";
 
-    private static CgArgs cgArgs;
+    private static ServerArgs serverArgs;
 
     static {
-        cgArgs = new CgArgs(MethodHandles.lookup().lookupClass(),
+        serverArgs = new ServerArgs(MethodHandles.lookup().lookupClass(),
             RESOURCE_NAME, PROGNAME);
-        cgArgs.addAllowableArg(CGMINERHOST, "jtconnors.com");
-        cgArgs.addAllowableArg(CGMINERPORT, "4028");
-        cgArgs.addAllowableArg(HTTPPORT, "8000");
-        cgArgs.addAllowableArg(HTTPSPORT, "8001");
-        cgArgs.addAllowableArg(SSL, "false");
+        serverArgs.addAllowableArg(CGMINERHOST, "jtconnors.com");
+        serverArgs.addAllowableArg(CGMINERPORT, "4028");
+        serverArgs.addAllowableArg(HTTPPORT, "8001");
+        serverArgs.addAllowableArg(HTTPSPORT, "8002");
+        serverArgs.addAllowableArg(SSL, "false");
     }
 
     public static void main(String[] args) throws Exception {
@@ -69,15 +69,17 @@ public final class CgminerNettyHttpServer {
         boolean ssl;
         int port;
         boolean debugLog;
+        boolean logMemUsage;
         //final SslContext sslCtx;
 
-        cgArgs.parseArgs(args);
-        cgminerHost = cgArgs.getProperty(CGMINERHOST);
-        cgminerPort = Integer.parseInt(cgArgs.getProperty(CGMINERPORT));
-        ssl = Boolean.parseBoolean(cgArgs.getProperty(SSL));
-        port = ssl  ? Integer.parseInt(cgArgs.getProperty(HTTPSPORT))
-                    : Integer.parseInt(cgArgs.getProperty(HTTPPORT));
-        debugLog = Boolean.parseBoolean(cgArgs.getProperty(DEBUGLOG));
+        serverArgs.parseArgs(args);
+        cgminerHost = serverArgs.getProperty(CGMINERHOST);
+        cgminerPort = Integer.parseInt(serverArgs.getProperty(CGMINERPORT));
+        ssl = Boolean.parseBoolean(serverArgs.getProperty(SSL));
+        port = ssl  ? Integer.parseInt(serverArgs.getProperty(HTTPSPORT))
+                    : Integer.parseInt(serverArgs.getProperty(HTTPPORT));
+        debugLog = Boolean.parseBoolean(serverArgs.getProperty(DEBUGLOG));
+        logMemUsage = Boolean.parseBoolean(serverArgs.getProperty(LOGMEMUSAGE));
         System.err.println("starting at " + (ssl ? "https" : "http") +
                 "://localhost:" + port);
         System.err.println("cgminer at " + cgminerHost + ":" + cgminerPort);
@@ -108,8 +110,8 @@ public final class CgminerNettyHttpServer {
              .handler(new LoggingHandler(LogLevel.INFO))
             // .childHandler(new CgminerNettyHttpServerInitializer(sslCtx,
             //     cgminerHost, cgminerPort));
-             .childHandler(new CgminerNettyHttpServerInitializer(cgminerHost,
-                cgminerPort));
+             .childHandler(new CgminerNettyHttpServerInitializer(
+                    cgminerHost, cgminerPort, logMemUsage));
 
             Channel ch = b.bind(port).sync().channel();
 

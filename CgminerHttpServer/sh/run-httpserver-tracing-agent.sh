@@ -11,9 +11,10 @@ cd `dirname $0`
 #
 . env.sh
 
-CGMINERHOST=49er
+CGMINERHOST=jtconnors.com
 CGMINERPORT=4028
-HTTPPORT=8000
+HTTPPORT=8001
+LOGMEMUSAGE=true
 
-exec_cmd "java -agentlib:native-image-agent=config-merge-dir=src/main/resources/META-INF/native-image/$MAINCLASS -classpath $CLASSPATH $MAINCLASS -cgminerHost:$CGMINERHOST -cgminerPort:$CGMINERPORT -httpPort:$HTTPPORT"
+exec_cmd "java -agentlib:native-image-agent=config-merge-dir=src/main/resources/META-INF/native-image/$MAINCLASS -classpath $CLASSPATH $MAINCLASS -cgminerHost:$CGMINERHOST -cgminerPort:$CGMINERPORT -httpPort:$HTTPPORT -logMemUsage:$LOGMEMUSAGE"
 

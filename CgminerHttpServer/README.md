@@ -18,8 +18,9 @@ The HTTP sever accepts optional command-line arguments which may need to be modi
 Specify hostname (or IP Address) of the running cgminer instance.  This will have to be modified to match the hostname of your cgminer instance.
 - ```-cgminerPort:PORT_NUMBER```  - (default 4028) 
 Specify the port number used to communicate with a running cgminer instance.  Chances are this will remain unchanged.  
-- ```-httpPort:PORT_NUMBER```  - (default 8000) 
+- ```-httpPort:PORT_NUMBER```  - (default 8001) 
 Specify the port number used by the HTTP server.
+- ```-logMemUsage:{true|false}``` (default true) Log memory usage after each http request
 
 There are at least three different ways to start up this application
 
@@ -34,7 +35,8 @@ To start the HTTP server from maven, issue the following command:
   <mainClass>com.jtconnors.cgminerapi.http.CgminerHttpServer</mainClass>
   <cgminerHost>jtconnors.com</cgminerHost>
   <cgminerPort>4028</cgminerPort>
-  <httpPort>8000</httpPort>
+  <httpPort>8001</httpPort>
+  <logMemUsage>true</logMemUsage>
   ...
 </properties>
 ```
@@ -60,13 +62,13 @@ or with the provided script:
 
 # Sample HTTP queries
 
-Assuming the HTTP Server is running on ```localhost``` and defaults to port ```8000```, the following commands can be executed from a standard terminal on ```localhost```:
+Assuming the HTTP Server is running on ```localhost``` and defaults to port ```8001```, the following commands can be executed from a standard terminal on ```localhost```:
 
-- ```curl http://localhost:8000/cgminer?command=summary```   
+- ```curl http://localhost:8001/cgminer?command=summary```   
 to recieve a summary status of the cgminer instance
-- ```curl http://localhost:8000/cgminer?command=devs```  
+- ```curl http://localhost:8001/cgminer?command=devs```  
 to recieve the details of each available PGA and ASIC managed by the cgminer instance
-- ```curl http://localhost:8000/cgminer?command=ascenable;parameter=0```
+- ```curl "http://localhost:8001/cgminer?command=ascenable;parameter=0"```
 to enable ASIC number 0 managed by the cgminer instance
 
 # See also:

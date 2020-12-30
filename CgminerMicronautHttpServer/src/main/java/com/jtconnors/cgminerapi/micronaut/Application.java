@@ -7,7 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.lang.invoke.MethodHandles;
 
-import static com.jtconnors.cgminerapi.micronaut.CgArgs.*;
+import static com.jtconnors.cgminerapi.micronaut.ServerArgs.*;
 
 import com.jtconnors.cgminerapi.Util;
 
@@ -20,22 +20,22 @@ public class Application {
     private static final String PROGNAME= "cgminerMicronautHttpServer";
     public static final String CONTEXT = "/cgminer";
 
-    public static CgArgs cgArgs;
+    public static ServerArgs serverArgs;
 
     static {
-        cgArgs = new CgArgs(MethodHandles.lookup().lookupClass(), 
+        serverArgs = new ServerArgs(MethodHandles.lookup().lookupClass(), 
             RESOURCE_NAME, PROGNAME);
-        cgArgs.addAllowableArg(CGMINERHOST, DEFAULT_CGMINERHOST);
-        cgArgs.addAllowableArg(CGMINERPORT, DEFAULT_CGMINERPORT);
-        cgArgs.addAllowableArg(DEBUGLOG, "false");
-        cgArgs.addAllowableArg(LOGMEMUSAGE, "false");
+        serverArgs.addAllowableArg(CGMINERHOST, DEFAULT_CGMINERHOST);
+        serverArgs.addAllowableArg(CGMINERPORT, DEFAULT_CGMINERPORT);
+        serverArgs.addAllowableArg(DEBUGLOG, "false");
+        serverArgs.addAllowableArg(LOGMEMUSAGE, "false");
     }
 
     public static void main(String[] args) {
-        cgArgs.parseArgs(args);
-        String cgminerHost = cgArgs.getProperty(CGMINERHOST);
-        int cgminerPort = Integer.parseInt(cgArgs.getProperty(CGMINERPORT));
-        boolean debugLog = Boolean.parseBoolean(cgArgs.getProperty(DEBUGLOG));
+        serverArgs.parseArgs(args);
+        String cgminerHost = serverArgs.getProperty(CGMINERHOST);
+        int cgminerPort = Integer.parseInt(serverArgs.getProperty(CGMINERPORT));
+        boolean debugLog = Boolean.parseBoolean(serverArgs.getProperty(DEBUGLOG));
         System.err.println("cgminer at " + cgminerHost + ":" + cgminerPort);
 
         if (!debugLog) {

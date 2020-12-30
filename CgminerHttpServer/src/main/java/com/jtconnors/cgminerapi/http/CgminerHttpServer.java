@@ -14,7 +14,7 @@ import java.lang.management.ManagementFactory;
 import java.net.InetSocketAddress;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static com.jtconnors.cgminerapi.http.CgArgs.*;
+import static com.jtconnors.cgminerapi.http.serverArgs.*;
 
 public class CgminerHttpServer {
 
@@ -24,21 +24,21 @@ public class CgminerHttpServer {
     private static final String PROGNAME= "cgminerHttpServer";
     public static final String CONTEXT = "/cgminer";
 
-    private static CgArgs cgArgs;
+    private static serverArgs serverArgs;
 
     static {
-        cgArgs = new CgArgs(MethodHandles.lookup().lookupClass(), 
+        serverArgs = new serverArgs(MethodHandles.lookup().lookupClass(), 
             RESOURCE_NAME, PROGNAME);
-        cgArgs.addAllowableArg(CGMINERHOST, DEFAULT_CGMINERHOST);
-        cgArgs.addAllowableArg(CGMINERPORT, DEFAULT_CGMINERPORT);
-        cgArgs.addAllowableArg(HTTPPORT, DEFAULT_HTTPPORT);
-        cgArgs.addAllowableArg(DEBUGLOG, "false");
+        serverArgs.addAllowableArg(CGMINERHOST, DEFAULT_CGMINERHOST);
+        serverArgs.addAllowableArg(CGMINERPORT, DEFAULT_CGMINERPORT);
+        serverArgs.addAllowableArg(HTTPPORT, DEFAULT_HTTPPORT);
+        serverArgs.addAllowableArg(LOGMEMUSAGE, "false");
+        serverArgs.addAllowableArg(DEBUGLOG, "false");
     }
 
     private static String cgminerHost;
     private static int cgminerPort;
     private static int httpPort;
-    private static boolean debugLog;
 
     private static void handleRequest(HttpExchange exchange) throws IOException{
         String queryStr = exchange.getRequestURI().getQuery();
@@ -59,23 +59,27 @@ public class CgminerHttpServer {
                 exchange.sendResponseHeaders(400, errMsg.length());
                 os.write(errMsg.getBytes());
             } finally {
-                LOGGER.log(Level.INFO, "Memory usage = {0}", 
-                    Runtime.getRuntime().totalMemory() -
-                    Runtime.getRuntime().freeMemory());
+                if (Boolean.parseBoolean(serverArgs.getProperty(LOGMEMUSAGE))) {
+                    Level originalLogLevel = LOGGER.getLevel();
+                    LOGGER.setLevel(Level.INFO);
+                    LOGGER.log(Level.INFO, "Memory usage = {0}", 
+                        Runtime.getRuntime().totalMemory() -
+                        Runtime.getRuntime().freeMemory());
+                    LOGGER.setLevel(originalLogLevel);
+                }
             }
         }
     }
 
     public static void main(String[] args) throws Exception {
-        cgArgs.parseArgs(args);
-        cgminerHost = cgArgs.getProperty(CGMINERHOST);
-        cgminerPort = Integer.parseInt(cgArgs.getProperty(CGMINERPORT));
-        httpPort = Integer.parseInt(cgArgs.getProperty(HTTPPORT));
-        debugLog = Boolean.parseBoolean(cgArgs.getProperty(DEBUGLOG));
+        serverArgs.parseArgs(args);
+        cgminerHost = serverArgs.getProperty(CGMINERHOST);
+        cgminerPort = Integer.parseInt(serverArgs.getProperty(CGMINERPORT));
+        httpPort = Integer.parseInt(serverArgs.getProperty(HTTPPORT));
         System.err.println("starting at http://localhost:" + httpPort);
         System.err.println("cgminer at " + cgminerHost + ":" + cgminerPort);
 
-        if (!debugLog) {
+        if (!Boolean.parseBoolean(serverArgs.getProperty(DEBUGLOG))) {
             LOGGER.setLevel(Level.OFF);
         }
 
@@ -83,7 +87,6 @@ public class CgminerHttpServer {
         LOGGER.log(Level.INFO, "cgminerHost = {0}", cgminerHost);
         LOGGER.log(Level.INFO, "cgminerPort = {0}", cgminerPort);
         LOGGER.log(Level.INFO, "httpPort = {0}", httpPort);
-        LOGGER.log(Level.INFO, "debugLog = {0}", debugLog);
         HttpServer server = HttpServer.create(
             new InetSocketAddress(httpPort), 0);
         HttpContext context = server.createContext(CONTEXT);

@@ -31,13 +31,15 @@ public class CgminerNettyHttpServerInitializer
     //private final SslContext sslCtx;
     private final String cgminerHost;
     private final int cgminerPort;
+    private final boolean logMemUsage;
 
     //public CgminerNettyHttpServerInitializer(SslContext sslCtx, 
     public CgminerNettyHttpServerInitializer( 
-            String cgminerHost, int cgminerPort) {
+            String cgminerHost, int cgminerPort, boolean logMemUsage) {
         //this.sslCtx = sslCtx;
         this.cgminerHost = cgminerHost;
         this.cgminerPort = cgminerPort;
+        this.logMemUsage = logMemUsage;
     }
 
     @Override
@@ -47,6 +49,7 @@ public class CgminerNettyHttpServerInitializer
         //    p.addLast(sslCtx.newHandler(ch.alloc()));
         //}
         p.addLast(new HttpServerCodec());
-        p.addLast(new CgminerNettyHttpServerHandler(cgminerHost, cgminerPort));
+        p.addLast(new CgminerNettyHttpServerHandler(
+                cgminerHost, cgminerPort, logMemUsage));
     }
 }

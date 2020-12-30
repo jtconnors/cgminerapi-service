@@ -61,16 +61,16 @@ public class HelloController {
             LOGGER.log(Level.INFO, "JSON  command = {0}", jsonCommandStr);
             replyStr =
                 new APIConnection(
-                    Application.cgArgs.getProperty(CgArgs.CGMINERHOST),
+                    Application.serverArgs.getProperty(ServerArgs.CGMINERHOST),
                     Integer.parseInt(
-                        Application.cgArgs.getProperty(CgArgs.CGMINERPORT)))
+                        Application.serverArgs.getProperty(ServerArgs.CGMINERPORT)))
                     .apiCall(jsonCommandStr) + "\n";      
         } catch (InvalidQueryStringException | IOException e) {
             replyStr = Util.exceptionStackTraceToString(e);
             LOGGER.log(Level.SEVERE, "{0}", replyStr);
         } finally {
-            if (Boolean.parseBoolean(Application.cgArgs.getProperty(
-                    CgArgs.LOGMEMUSAGE))) {
+            if (Boolean.parseBoolean(Application.serverArgs.getProperty(
+                    ServerArgs.LOGMEMUSAGE))) {
                 Level originalLogLevel = LOGGER.getLevel();
                 LOGGER.setLevel(Level.INFO);
                 LOGGER.log(Level.INFO, "Memory usage = {0}", 
