@@ -11,7 +11,7 @@ Of note, the following maven goals can be executed to clean and build the softwa
    - ```mvn -f pom-sans-native-image.xml package```  can be executed to build without creating a native-image binary
 
 # Running the Http Server
-The source for this server can be found in the [src/main/java/com/jtconnors/cgminerapi/micronaut/CgminerMicronautHttpServer.java](src/main/java/com/jtconnors/cgminerapi/micronaut/CgminerMicronautHttpServer.java) source file.
+The source for the program can be found in the [src/main/java/com/jtconnors/cgminerapi/micronaut/](src/main/java/com/jtconnors/cgminerapi/micronaut/) directory.
 
 The program accepts optional command-line arguments which may need to be modified:
 
