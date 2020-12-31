@@ -28,13 +28,17 @@ if ($Global:JUST_EXIT -eq "true") {
 #
 # Run the Java command
 #
+Set-Variable -Name TRACING_AGENT -Value "-agentlib:native-image-agent=config-merge-dir=src\main\resources\META-INF\native-image\"
+$TRACING_AGENT += $MAINCLASS
 Set-Variable -Name JAVA_ARGS -Value @(
+    """$TRACING_AGENT""",
     '-classpath',
     """$CLASSPATH""",
     """$MAINCLASS""",
-    '-localPort:4028',
-    '-remoteHost:49er',
-    '-remotePort:4028'
+    '-cgminerHost:jtconnors.com',
+    '-cgminerPort:4028',
+    '-httpPort:8001',
+    '-logMemUsage:true'
 )
 Exec-Cmd("$env:JAVA_HOME\bin\java.exe", $JAVA_ARGS)
 

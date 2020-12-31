@@ -11,8 +11,7 @@
 },
 {
   "name":"sun.management.VMManagementImpl",
-  "fields":[
-    {"name":"bootClassPathSupport"}, 
+  "fields":[ 
     {"name":"compTimeMonitoringSupport"}, 
     {"name":"currentThreadCpuTimeSupport"}, 
     {"name":"gcNotificationSupport"}, 

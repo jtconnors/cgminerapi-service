@@ -28,6 +28,11 @@ if ($Global:JUST_EXIT -eq "true") {
 #
 # Run the Java command
 #
+# No command-line arg for http port for this version.  Micronaut allows port
+# configuration either by specifying it in src/main/resources/application.yml
+# or defining the following environment variable:
+#Set-Variable -Name MICRONAUT_SERVER_PORT -Value 8001
+
 Set-Variable -Name JAVA_ARGS -Value @(
     '-classpath',
     """$CLASSPATH""",

@@ -26,8 +26,13 @@ if ($Global:JUST_EXIT -eq "true") {
 ####################
 
 #
-# Run the Java command
+# Run the native-image command
 #
+# No command-line arg for http port for this version.  Micronaut allows port
+# configuration either by specifying it in src/main/resources/application.yml
+# or defining the following environment variable:
+#Set-Variable -Name MICRONAUT_SERVER_PORT -Value 8001
+
 Set-Variable -Name NI_ARGS -Value @(
     '-cgminerHost:jtconnors.com',
     '-cgminerPort:4028',
@@ -35,7 +40,7 @@ Set-Variable -Name NI_ARGS -Value @(
     '-logMemUsage:true'
 )
 
-Exec-Cmd(".\target\CgminerMicronautHttpServer.exe", $NI_ARGS)
+Exec-Cmd(".\target\$PROJECT", $NI_ARGS)
 
 #
 # Return to the original directory

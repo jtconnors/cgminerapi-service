@@ -191,10 +191,6 @@
   "methods":[{"name":"<init>","parameterTypes":["long","int"] }]
 },
 {
-  "name":"sun.misc.Cleaner",
-  "methods":[{"name":"clean","parameterTypes":[] }]
-},
-{
   "name":"sun.misc.Unsafe",
   "fields":[{"name":"theUnsafe"}],
   "methods":[
@@ -202,10 +198,6 @@
     {"name":"getAndAddLong","parameterTypes":["java.lang.Object","long","long"] }, 
     {"name":"getAndSetObject","parameterTypes":["java.lang.Object","long","java.lang.Object"] }
   ]
-},
-{
-  "name":"sun.misc.VM",
-  "methods":[{"name":"maxDirectMemory","parameterTypes":[] }]
 },
 {
   "name":"sun.nio.ch.SelectorImpl",

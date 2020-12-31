@@ -37,7 +37,7 @@ Set-Variable -Name JAVA_ARGS -Value @(
     """$MAINCLASS""",
     '-cgminerHost:jtconnors.com',
     '-cgminerPort:4028',
-    '-httpPort:8000',
+    '-httpPort:8001',
     '-logMemUsage:true'
 )
 Exec-Cmd("$env:JAVA_HOME\bin\java.exe", $JAVA_ARGS)

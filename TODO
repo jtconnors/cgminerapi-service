@@ -7,7 +7,7 @@
 [Done]		update README.md (-logMemUsage) for CgminerHttpServer
 [Done]		update README.md (-logMemUsage) for CgminerNettyHttpServer
 [Done]		update README.md (-logMemUsage) for CgminerMicronautHttpServer
-[]		ps1 scripts for CgminerHttpServer
-[]		ps1 scripts for CgminerNettyHttpServer
-[]		ps1 scripts for CgminerMicronautHttpServer
+[Done]		ps1 scripts for CgminerHttpServer
+[Done]		ps1 scripts for CgminerNettyHttpServer
+[Done]		ps1 scripts for CgminerMicronautHttpServer
 []		ps1 scripts for CgminerProxy
