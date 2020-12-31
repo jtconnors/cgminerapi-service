@@ -11,3 +11,6 @@
 [Done]		ps1 scripts for CgminerNettyHttpServer
 [Done]		ps1 scripts for CgminerMicronautHttpServer
 []		ps1 scripts for CgminerProxy
+[]      new CgminerQuarkusHttpServer project
+[]      new CgminerHelodonHttpServer project
+[]      new CgminerSpringBootHttpServer project

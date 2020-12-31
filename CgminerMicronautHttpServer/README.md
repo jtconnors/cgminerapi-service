@@ -46,7 +46,7 @@ The following scripts are provided as part of this project which can be run from
 - [sh/run-micronaut-httpserver-without-mvn.sh](sh/run-micronaut-httpserver-without-mvn.sh) - for Linux and MacOS, run the program outside of the ```maven``` framework
 - [ps1\run-micronaut-httpserver-without-mvn.ps1](ps1/run-micronaut-httpserver-without-mvn.ps1) - for Windows, run the program outside of the ```maven``` framework
 - [sh/run-micronaut-httpserver-mvn.sh](sh/run-micronaut-httpserver-mvn.sh) - for Linux and MacOS, run the program within the ```maven``` framework
-- [ps1\run-micronaut-httpserver-mvn.ps1](ps1/run-micronaut-httpserver-mvn.ps1) - for Windows, run the program outside of the ```maven``` framework
+- [ps1\run-micronaut-httpserver-mvn.ps1](ps1/run-micronaut-httpserver-mvn.ps1) - for Windows, run the program within the ```maven``` framework
 
 ### Notes
 - The scripts referred to above have a few available command-line options related to how they execute. To print out the options, add ```-?``` or ```--help``` as an argument to any script.
