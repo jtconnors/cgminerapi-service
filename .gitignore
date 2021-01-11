@@ -22,3 +22,9 @@ CgminerMicronautHttpServer/.factorypath
 CgminerMicronautHttpServer/.vscode/
 CgminerMicronautHttpServer/.settings/
 CgminerMicronautHttpServer/target/
+CgminerQuarkusHttpServer/.classpath
+CgminerQuarkusHttpServer/.project
+CgminerQuarkusHttpServer/.factorypath
+CgminerQuarkusHttpServer/.vscode/
+CgminerQuarkusHttpServer/.settings/
+CgminerQuarkusHttpServer/target/

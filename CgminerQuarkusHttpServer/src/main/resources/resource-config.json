@@ -1,0 +1,17 @@
+{
+  "resources":{
+  "includes":[
+    {
+      "pattern": ".*\\.xml$"
+    },
+    {
+      "pattern": ".*\\.json$"
+    },
+    {
+      "pattern": ".*\\.properties$"
+    },
+    {"pattern":"\\Qserver.properties\\E"}, 
+    {"pattern":"\\Qapplication.properties\\E"} 
+  ]},
+  "bundles":[]
+}

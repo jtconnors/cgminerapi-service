@@ -14,3 +14,6 @@
 []      new CgminerQuarkusHttpServer project
 []      new CgminerHelodonHttpServer project
 []      new CgminerSpringBootHttpServer project
+[]	    serverArgs.java => ServerArgs.java in CgminerHttpServer
+[]	    $TARGET => $TARGET/classes in env.sh when setting classpath
+[]      cgminer.properties => server.properties for all projects 
