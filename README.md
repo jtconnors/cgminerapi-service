@@ -32,4 +32,4 @@ The various *cgminerapi-service* implementations contained within this project u
 and forwards requests/replies from an otherwise inaccessible internal instance running real, albeit humble, bitcoin mining equipment.
 # See Also:
 - cgminer project on GitHub - https://github.com/ckolivas/cgminer
-- com.jtconnors.cgminerapi project on GitHub - https://gitbub.com/jtconnors/com.jtconnors.cgminerapi
+- com.jtconnors.cgminerapi project on GitHub - https://github.com/jtconnors/com.jtconnors.cgminerapi
